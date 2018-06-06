@@ -1,4 +1,14 @@
 class EnrollmentsController < ApplicationController
+  before_action :current_user_must_be_enrollment_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_enrollment_user
+    enrollment = Enrollment.find(params[:id])
+
+    unless current_user == enrollment.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @enrollments = Enrollment.all
 

@@ -39,12 +39,14 @@
             <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
+            <%if current_user == enrollment.user %>
+              <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>

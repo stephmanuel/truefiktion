@@ -20,8 +20,11 @@
         <td><%= enrollment.user.email %></td>
         <td>
           <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">Show</a>
-          <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == enrollment.user %>
+            <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
