@@ -1,6 +1,7 @@
 class StagesController < ApplicationController
   def index
-    @stages = Stage.page(params[:page]).per(10)
+    @q = Stage.ransack(params[:q])
+    @stages = @q.result(:distinct => true).includes(:issue, :weeks).page(params[:page]).per(10)
 
     render("stages/index.html.erb")
   end

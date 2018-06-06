@@ -1,6 +1,7 @@
 class IssuesController < ApplicationController
   def index
-    @issues = Issue.page(params[:page]).per(10)
+    @q = Issue.ransack(params[:q])
+    @issues = @q.result(:distinct => true).includes(:stages, :enrollments, :users).page(params[:page]).per(10)
 
     render("issues/index.html.erb")
   end

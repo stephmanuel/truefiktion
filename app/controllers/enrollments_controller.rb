@@ -10,7 +10,8 @@ class EnrollmentsController < ApplicationController
   end
 
   def index
-    @enrollments = Enrollment.page(params[:page]).per(10)
+    @q = Enrollment.ransack(params[:q])
+    @enrollments = @q.result(:distinct => true).includes(:user, :issue).page(params[:page]).per(10)
 
     render("enrollments/index.html.erb")
   end
