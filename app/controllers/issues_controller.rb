@@ -24,6 +24,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new
 
     @issue.user_id = params[:user_id]
+    @issue.name = params[:name]
 
     save_status = @issue.save
 
@@ -51,6 +52,7 @@ class IssuesController < ApplicationController
     @issue = Issue.find(params[:id])
 
     @issue.user_id = params[:user_id]
+    @issue.name = params[:name]
 
     save_status = @issue.save
 
