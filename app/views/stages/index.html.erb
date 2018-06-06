@@ -16,7 +16,7 @@
 
       <% @stages.each do |stage| %>
       <tr>
-        <td><%= stage.issue_id %></td>
+        <td><%= stage.issue.user_id %></td>
         <td><%= stage.name %></td>
         <td>
           <a href="/stages/<%= stage.id %>" class="btn btn-primary">Show</a>
