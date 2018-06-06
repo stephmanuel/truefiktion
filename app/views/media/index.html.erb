@@ -18,7 +18,13 @@
 
       <% @media.each do |medium| %>
       <tr>
-        <td><%= medium.week.stage_id %></td>
+        <td>
+          <% if medium.week.present? %>
+            <a href="/weeks/<%= medium.week.id %>">
+              <%= medium.week.stage_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= medium.stage_id %></td>
         <td><%= medium.article %></td>
         <td><%= medium.video %></td>

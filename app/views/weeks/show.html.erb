@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Stage</dt>
-      <dd><%= @week.stage_id %></dd>
+      <dd>
+        <% if @week.stage.present? %>
+          <a href="/stages/<%= @week.stage_id %>">
+            <%= @week.stage.issue_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Issue</dt>
       <dd><%= @week.issue_id %></dd>

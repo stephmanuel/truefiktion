@@ -17,7 +17,13 @@
 
       <% @weeks.each do |week| %>
       <tr>
-        <td><%= week.stage.issue_id %></td>
+        <td>
+          <% if week.stage.present? %>
+            <a href="/stages/<%= week.stage.id %>">
+              <%= week.stage.issue_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= week.issue_id %></td>
         <td><%= week.weeks %></td>
         <td>
