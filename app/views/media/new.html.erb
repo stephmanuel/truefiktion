@@ -24,7 +24,7 @@
           Week
         </label>
 
-        <%= select_tag(:week_id, options_from_collection_for_select(Week.all, :id, :stage_id, @medium.week_id), :class => "form-control") %>
+        <input type="text" id="week_id" name="week_id" placeholder="Week" class="form-control" value="<%= @medium.week_id %>">
       </div>
 
       <!-- Label and input for stage_id -->
@@ -33,7 +33,7 @@
           Stage
         </label>
 
-        <input type="text" id="stage_id" name="stage_id" placeholder="Stage" class="form-control" value="<%= @medium.stage_id %>">
+        <%= select_tag(:stage_id, options_from_collection_for_select(Stage.all, :id, :issue_id, @medium.stage_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for article -->

@@ -27,13 +27,13 @@
         <%= select_tag(:issue_id, options_from_collection_for_select(Issue.all, :id, :user_id, @stage.issue_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for name -->
+      <!-- Label and input for stage_number -->
       <div class="form-group">
-        <label for="name" class="control-label">
-          Name
+        <label for="stage_number" class="control-label">
+          Stage number
         </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @stage.name %>">
+        <input type="text" id="stage_number" name="stage_number" placeholder="Stage number" class="form-control" value="<%= @stage.stage_number %>">
       </div>
 
       <button class="btn btn-warning">
