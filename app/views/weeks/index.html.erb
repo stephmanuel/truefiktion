@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Weeks
+    <a href="/weeks/new" class="btn btn-lg btn-success">New Week</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Stage</th>
+        <th>Issue</th>
+        <th>Weeks</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @weeks.each do |week| %>
+      <tr>
+        <td><%= week.stage_id %></td>
+        <td><%= week.issue_id %></td>
+        <td><%= week.weeks %></td>
+        <td>
+          <a href="/weeks/<%= week.id %>" class="btn btn-primary">Show</a>
+          <a href="/weeks/<%= week.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_week/<%= week.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
