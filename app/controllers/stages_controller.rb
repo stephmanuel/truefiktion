@@ -1,6 +1,6 @@
 class StagesController < ApplicationController
   def index
-    @stages = Stage.all
+    @stages = Stage.page(params[:page]).per(10)
 
     render("stages/index.html.erb")
   end
