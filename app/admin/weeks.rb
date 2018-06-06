@@ -1,4 +1,6 @@
 ActiveAdmin.register Week do
+
+ permit_params :stage_id, :issue_id, :weeks
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
