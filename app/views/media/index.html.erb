@@ -9,6 +9,18 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+  <%= f.label :week_id, "Week" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :week_id_gteq, :class => "form-control", :placeholder => "Week greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :week_id_lteq, :class => "form-control", :placeholder => "Week less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
     <%= f.label :video_cont, "Video contains" %>
     <%= f.text_field :video_cont, :class => "form-control", :placeholder => "Video contains" %>
   </div>
@@ -17,18 +29,6 @@
     <%= f.label :article_cont, "Article contains" %>
     <%= f.text_field :article_cont, :class => "form-control", :placeholder => "Article contains" %>
   </div>
-
-<div class="form-group">
-  <%= f.label :stage_id, "Stage" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :stage_id_gteq, :class => "form-control", :placeholder => "Stage greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :stage_id_lteq, :class => "form-control", :placeholder => "Stage less than or equal to" %>
-    </div>
-  </div>
-</div>
 
 <div class="form-group">
           <%= f.label :created_at, "Created at" %>
@@ -95,14 +95,14 @@
 
       <% @media.each do |medium| %>
       <tr>
+        <td><%= medium.week_id %></td>
         <td>
-          <% if medium.week.present? %>
-            <a href="/weeks/<%= medium.week.id %>">
-              <%= medium.week.stage_id %>
+          <% if medium.stage.present? %>
+            <a href="/stages/<%= medium.stage.id %>">
+              <%= medium.stage.issue_id %>
             </a>
           <% end %>
         </td>
-        <td><%= medium.stage_id %></td>
         <td><%= medium.article %></td>
         <td><%= medium.video %></td>
         <td>

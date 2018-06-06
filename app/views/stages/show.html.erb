@@ -14,8 +14,8 @@
         <% end %>
       </dd>
 
-      <dt>Name</dt>
-      <dd><%= @stage.name %></dd>
+      <dt>Stage number</dt>
+      <dd><%= @stage.stage_number %></dd>
 
     </dl>
 
@@ -33,28 +33,28 @@
   </div>
 </div>
 
-<!-- A Stage has many weeks -->
+<!-- A Stage has many media -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Weeks
+        Media
       </li>
 
-      <% @stage.weeks.each do |week| %>
+      <% @stage.media.each do |medium| %>
         <li class="list-group-item">
-          <a href="/weeks/<%= week.id %>">
-            <%= week.stage_id %>
+          <a href="/media/<%= medium.id %>">
+            <%= medium.week_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/weeks/<%= week.id %>" class="btn btn-primary">
+            <a href="/media/<%= medium.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/weeks/<%= week.id %>/edit" class="btn btn-warning">
+            <a href="/media/<%= medium.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
-            <a href="/delete_week/<%= week.id %>" class="btn btn-danger" rel="nofollow">
+            <a href="/delete_medium/<%= medium.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
@@ -62,33 +62,42 @@
       <% end %>
 
       <li class="list-group-item">
-        <form action="/create_week" method="post">
+        <form action="/create_medium" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for week_id -->
+      <div class="form-group">
+        <label for="week_id" class="control-label">
+          Week
+        </label>
+
+        <input type="text" id="week_id" name="week_id" placeholder="Week" class="form-control" value="">
+      </div>
 
       <!-- Label and input for stage_id -->
       <input type="hidden" name="stage_id" value="<%= @stage.id %>">
 
-      <!-- Label and input for issue_id -->
+      <!-- Label and input for article -->
       <div class="form-group">
-        <label for="issue_id" class="control-label">
-          Issue
+        <label for="article" class="control-label">
+          Article
         </label>
 
-        <input type="text" id="issue_id" name="issue_id" placeholder="Issue" class="form-control" value="">
+        <input type="text" id="article" name="article" placeholder="Article" class="form-control" value="">
       </div>
 
-      <!-- Label and input for weeks -->
+      <!-- Label and input for video -->
       <div class="form-group">
-        <label for="weeks" class="control-label">
-          Weeks
+        <label for="video" class="control-label">
+          Video
         </label>
 
-        <input type="text" id="weeks" name="weeks" placeholder="Weeks" class="form-control" value="">
+        <input type="text" id="video" name="video" placeholder="Video" class="form-control" value="">
       </div>
 
       <button class="btn btn-block btn-success">
-        Create Week
+        Create Medium
       </button>
     </form>
       </li>

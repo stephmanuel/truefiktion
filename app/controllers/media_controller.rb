@@ -1,7 +1,7 @@
 class MediaController < ApplicationController
   def index
     @q = Medium.ransack(params[:q])
-    @media = @q.result(:distinct => true).includes(:week).page(params[:page]).per(10)
+    @media = @q.result(:distinct => true).includes(:stage).page(params[:page]).per(10)
 
     render("media/index.html.erb")
   end

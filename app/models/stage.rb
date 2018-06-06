@@ -1,7 +1,7 @@
 class Stage < ApplicationRecord
   # Direct associations
 
-  has_many   :weeks,
+  has_many   :media,
              :dependent => :destroy
 
   belongs_to :issue,

@@ -1,13 +1,13 @@
 class StagesController < ApplicationController
   def index
     @q = Stage.ransack(params[:q])
-    @stages = @q.result(:distinct => true).includes(:issue, :weeks).page(params[:page]).per(10)
+    @stages = @q.result(:distinct => true).includes(:issue, :media).page(params[:page]).per(10)
 
     render("stages/index.html.erb")
   end
 
   def show
-    @week = Week.new
+    @medium = Medium.new
     @stage = Stage.find(params[:id])
 
     render("stages/show.html.erb")
@@ -23,7 +23,7 @@ class StagesController < ApplicationController
     @stage = Stage.new
 
     @stage.issue_id = params[:issue_id]
-    @stage.name = params[:name]
+    @stage.stage_number = params[:stage_number]
 
     save_status = @stage.save
 
@@ -51,7 +51,7 @@ class StagesController < ApplicationController
     @stage = Stage.find(params[:id])
 
     @stage.issue_id = params[:issue_id]
-    @stage.name = params[:name]
+    @stage.stage_number = params[:stage_number]
 
     save_status = @stage.save
 
