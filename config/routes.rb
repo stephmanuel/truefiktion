@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "issues#index"
   # Routes for the Enrollment resource:
   # CREATE
   get "/enrollments/new", :controller => "enrollments", :action => "new"
