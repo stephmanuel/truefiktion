@@ -54,6 +54,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_week" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for stage_id -->
+      <input type="hidden" name="stage_id" value="<%= @stage.id %>">
+
+      <!-- Label and input for issue_id -->
+      <div class="form-group">
+        <label for="issue_id" class="control-label">
+          Issue
+        </label>
+
+        <input type="text" id="issue_id" name="issue_id" placeholder="Issue" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for weeks -->
+      <div class="form-group">
+        <label for="weeks" class="control-label">
+          Weeks
+        </label>
+
+        <input type="text" id="weeks" name="weeks" placeholder="Weeks" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Week
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

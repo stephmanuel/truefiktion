@@ -6,6 +6,7 @@ class WeeksController < ApplicationController
   end
 
   def show
+    @medium = Medium.new
     @week = Week.find(params[:id])
 
     render("weeks/show.html.erb")

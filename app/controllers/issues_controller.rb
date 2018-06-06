@@ -6,6 +6,8 @@ class IssuesController < ApplicationController
   end
 
   def show
+    @enrollment = Enrollment.new
+    @stage = Stage.new
     @issue = Issue.find(params[:id])
 
     render("issues/show.html.erb")
