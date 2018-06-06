@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :issues,
+             :through => :enrollments,
+             :source => :issue
+
   # Validations
 
   # Include default devise modules. Others available are:

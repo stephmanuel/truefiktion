@@ -9,6 +9,10 @@ class Issue < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :enrollments,
+             :source => :user
+
   # Validations
 
 end
