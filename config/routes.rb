@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Enrollment resource:
+  # CREATE
+  get "/enrollments/new", :controller => "enrollments", :action => "new"
+  post "/create_enrollment", :controller => "enrollments", :action => "create"
+
+  # READ
+  get "/enrollments", :controller => "enrollments", :action => "index"
+  get "/enrollments/:id", :controller => "enrollments", :action => "show"
+
+  # UPDATE
+  get "/enrollments/:id/edit", :controller => "enrollments", :action => "edit"
+  post "/update_enrollment/:id", :controller => "enrollments", :action => "update"
+
+  # DELETE
+  get "/delete_enrollment/:id", :controller => "enrollments", :action => "destroy"
+  #------------------------------
+
   # Routes for the Medium resource:
   # CREATE
   get "/media/new", :controller => "media", :action => "new"
