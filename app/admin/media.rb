@@ -1,4 +1,6 @@
 ActiveAdmin.register Medium do
+
+ permit_params :week_id, :stage_id, :article, :video
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
