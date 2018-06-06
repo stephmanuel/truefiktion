@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @medium.errors.any? %>
+  <% @medium.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Medium</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_medium" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for week_id -->
+      <div class="form-group">
+        <label for="week_id" class="control-label">
+          Week
+        </label>
+
+        <input type="text" id="week_id" name="week_id" placeholder="Week" class="form-control" value="<%= @medium.week_id %>">
+      </div>
+
+      <!-- Label and input for stage_id -->
+      <div class="form-group">
+        <label for="stage_id" class="control-label">
+          Stage
+        </label>
+
+        <input type="text" id="stage_id" name="stage_id" placeholder="Stage" class="form-control" value="<%= @medium.stage_id %>">
+      </div>
+
+      <!-- Label and input for article -->
+      <div class="form-group">
+        <label for="article" class="control-label">
+          Article
+        </label>
+
+        <input type="text" id="article" name="article" placeholder="Article" class="form-control" value="<%= @medium.article %>">
+      </div>
+
+      <!-- Label and input for video -->
+      <div class="form-group">
+        <label for="video" class="control-label">
+          Video
+        </label>
+
+        <input type="text" id="video" name="video" placeholder="Video" class="form-control" value="<%= @medium.video %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Medium
+      </button>
+      or
+      <a href="/media">Cancel</a>
+    </form>
+  </div>
+</div>
