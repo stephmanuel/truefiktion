@@ -6,16 +6,16 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Week</dt>
+      <dd><%= @medium.week_id %></dd>
+
+      <dt>Stage</dt>
       <dd>
-        <% if @medium.week.present? %>
-          <a href="/weeks/<%= @medium.week_id %>">
-            <%= @medium.week.stage_id %>
+        <% if @medium.stage.present? %>
+          <a href="/stages/<%= @medium.stage_id %>">
+            <%= @medium.stage.issue_id %>
           </a>
         <% end %>
       </dd>
-
-      <dt>Stage</dt>
-      <dd><%= @medium.stage_id %></dd>
 
       <dt>Article</dt>
       <dd><%= @medium.article %></dd>

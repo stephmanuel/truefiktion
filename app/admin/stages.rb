@@ -1,6 +1,6 @@
 ActiveAdmin.register Stage do
 
- permit_params :issue_id, :name
+ permit_params :issue_id, :stage_number
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
